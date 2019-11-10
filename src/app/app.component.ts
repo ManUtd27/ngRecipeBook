@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'udemy-app';
+isWarning = true;
+isSuccess = true;
+
+  closeSuccess(value: boolean) {
+    this.isSuccess = value;
+  }
+  closeWarning(value: boolean) {
+    this.isWarning = value;
+  }
 }
+
+

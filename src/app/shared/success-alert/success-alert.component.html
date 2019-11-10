@@ -1,0 +1,14 @@
+<div *ngIf="isDisplayed" class="alert alert-success alert-app-level" role="alert">
+  <div class="alert-items">
+    <div class="alert-item static">
+      <div class="alert-icon-wrapper">
+        <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+      </div>
+      <span class="alert-text">This is a Success</span>
+    </div>
+  </div>
+  <button (click)="close(false)" type="button" class="close" aria-label="Close">
+    <clr-icon aria-hidden="true" shape="close"></clr-icon>
+  </button>
+</div>
+
