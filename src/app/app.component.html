@@ -1,6 +1,4 @@
 <clr-main-container>
-  <app-warning-alert [isDisplayed]="isWarning" (closeAlert)="closeWarning($event)"></app-warning-alert>
-  <app-success-alert [isDisplayed]="isSuccess" (closeAlert)="closeSuccess($event)"></app-success-alert>
   <app-header></app-header>
   <app-sub-nav></app-sub-nav>
    <div class="content-container">
@@ -8,7 +6,7 @@
       <app-side-nav></app-side-nav>
     </clr-vertical-nav>
     <main class="content-area">
-      <app-servers></app-servers>
+      <router-outlet></router-outlet>
     </main>
   </div>
 </clr-main-container>

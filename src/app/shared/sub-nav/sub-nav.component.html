@@ -1,19 +1,13 @@
 <nav class="subnav" [clr-nav-level]="1">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link active" href="#">Dashboard</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Management</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/shopping-list']">Shopping List</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">Cloud</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Tenants</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Contacts</a>
+      <a class="nav-link" routerLinkActive="active" [routerLink]="['/recipe-list']">Recipe List</a>
     </li>
   </ul>
 </nav>
