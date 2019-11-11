@@ -1,1 +1,44 @@
-<p>recipe-detail works!</p>
+
+<h3 class="welcome">Recipe Detail</h3>
+<div class="clr-row">
+  <div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
+    <div class="card">
+      <div class="card-header">
+        Recipe Name
+      </div>
+      <div class="card-block">
+        <div class="card-img">
+          <img src="https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg" alt="test">
+        </div>
+        <div class="card-title">
+          Description
+        </div>
+        <div class="card-text">
+          This is the description
+        </div>
+        <div class="card-title">
+          Ingredients
+        </div>
+        <div class="card-text">
+          This are the ingredients
+        </div>
+      </div>
+      <div class="card-footer">
+        <clr-dropdown>
+          <button class="btn btn-primary" clrDropdownTrigger>
+            Manage Recipe
+            <clr-icon shape="caret down"></clr-icon>
+          </button>
+          <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
+            <label class="dropdown-header" aria-hidden="true">Recipe Name</label>
+            <a  href="#" clrDropdownItem>Add to Shopping List</a>
+            <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+            <button class="btn btn-info" clrDropdownItem>Edit Recipe</button>
+            <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
+            <button class="btn btn-warning" clrDropdownItem>Delete Recipe</button>
+          </clr-dropdown-menu>
+        </clr-dropdown>
+      </div>
+    </div>
+  </div>
+</div>

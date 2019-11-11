@@ -1,1 +1,13 @@
-<p>recipe-item works!</p>
+<a href="#" class="card clickable">
+  <div class="card-img">
+    <img [src]="recipe.imagePath" alt="{{recipe.name}}">
+  </div>
+  <div class="card-block">
+    <div class="card-title">
+      {{recipe.name}}
+    </div>
+    <p class="card-text">
+      {{recipe.description}}
+    </p>
+  </div>
+</a>
