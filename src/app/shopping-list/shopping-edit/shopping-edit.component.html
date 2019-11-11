@@ -1,1 +1,32 @@
-<p>shopping-edit works!</p>
+<div class="clr-row">
+  <div class="clr-col-sm-12">
+    <form clrForm  [formGroup]="shoppingEditForm" (ngSubmit)="addItem()">
+      <div class="clr-row">
+        <div class="clr-col-sm-5">
+          <clr-input-container>
+            <label>Name</label>
+            <input clrInput type="text" formControlName="name" />
+            <clr-control-helper>Enter Name of the Shopping List Item</clr-control-helper>
+            <clr-control-error>This Item is required</clr-control-error>
+          </clr-input-container>
+        </div>
+        <div class="clr-col-sm-2">
+          <clr-input-container>
+            <label>Amount</label>
+            <input clrInput type="number" formControlName="amount" />
+            <clr-control-helper>Enter Amount of the Shopping List Item</clr-control-helper>
+            <clr-control-error>This Item is required</clr-control-error>
+          </clr-input-container>
+        </div>
+      </div>
+      <div class="clr-row">
+        <div class="clr-col-sm-12">
+          <button [disabled]="!shoppingEditForm.valid" type="submit" class="btn btn-success">Add</button>
+          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+

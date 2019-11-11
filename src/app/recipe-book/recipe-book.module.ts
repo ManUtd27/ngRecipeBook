@@ -7,6 +7,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.component';
 import {ClrDropdownModule} from '@clr/angular';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {ClrDropdownModule} from '@clr/angular';
   imports: [
     CommonModule,
     RecipeBookRoutingModule,
-    ClrDropdownModule
+    ClrDropdownModule,
+    ScrollingModule
   ]
 })
 export class RecipeBookModule { }
