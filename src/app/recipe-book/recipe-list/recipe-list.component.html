@@ -1,1 +1,25 @@
-<p>recipe-list works!</p>
+<div class="clr-row">
+  <div class="clr-col-sm-12 clr-col-md-12">
+    <button class="btn btn-primary">New Recipe</button>
+  </div>
+</div>
+<div class="clr-row">
+  <div class="clr-col-lg-12 clr-col-12">
+    <!--      <app-recipe-item></app-recipe-item>-->
+    <a *ngFor="let recipe of recipes" href="..." class="card clickable">
+      <div class="card-img">
+        <img src="{{recipe.imagePath}}">
+      </div>
+      <div class="card-block">
+        <div class="card-title">
+         {{recipe.name}}
+        </div>
+        <p class="card-text">
+          {{recipe.description}}
+        </p>
+      </div>
+    </a>
+  </div>
+</div>
+
+

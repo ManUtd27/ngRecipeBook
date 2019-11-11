@@ -2,13 +2,19 @@
   <div class="branding">
     <a [routerLink]="['/']" class="nav-link">
       <clr-icon shape="vm-bug"></clr-icon>
-      <span class="title">Udemy Course</span>
+      <span class="title">Recipe Book</span>
     </a>
   </div>
   <div class="header-actions">
-    <a href="javascript://" class="nav-link nav-icon-text">
-      <clr-icon shape="user"></clr-icon>
-      <span class="nav-text">username</span>
-    </a>
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+        <clr-icon shape="cog"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a href="#" clrDropdownItem>Save Data</a>
+        <a href="#" clrDropdownItem>Fetch Data</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
   </div>
 </clr-header>
