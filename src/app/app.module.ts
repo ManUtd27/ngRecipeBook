@@ -12,6 +12,7 @@ import { SuccessAlertComponent } from './shared/success-alert/success-alert.comp
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeBookModule } from './recipe-book/recipe-book.module';
+import { ShellComponent } from './shared/shell/shell.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RecipeBookModule } from './recipe-book/recipe-book.module';
     SideNavComponent,
     WarningAlertComponent,
     SuccessAlertComponent,
+    ShellComponent,
   ],
   imports: [
     BrowserModule,
