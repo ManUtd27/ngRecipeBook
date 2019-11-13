@@ -6,7 +6,7 @@
 <div class="clr-row">
   <div class="clr-col-lg-12 clr-col-12">
     <cdk-virtual-scroll-viewport  style="height: 100vh" itemSize="90">
-      <app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
+      <app-recipe-item (selectedItem)="passAlong($event)" *ngFor="let recipe of recipes" [recipe]="recipe"></app-recipe-item>
     </cdk-virtual-scroll-viewport>
   </div>
 </div>

@@ -1,20 +1,20 @@
 
 <h3 class="welcome">Recipe Detail</h3>
-<div class="clr-row">
+<div *ngIf="recipeItem" class="clr-row">
   <div class="clr-col-lg-12 clr-col-md-12 clr-col-12">
     <div class="card">
       <div class="card-header">
-        Recipe Name
+        {{recipeItem.name}}
       </div>
       <div class="card-block">
         <div class="card-img">
-          <img src="https://cdn.pixabay.com/photo/2016/06/15/19/09/food-1459693_960_720.jpg" alt="test">
+          <img src="{{recipeItem.imagePath}}" alt="test">
         </div>
         <div class="card-title">
           Description
         </div>
         <div class="card-text">
-          This is the description
+          {{recipeItem.description}}
         </div>
         <div class="card-title">
           Ingredients
@@ -30,7 +30,7 @@
             <clr-icon shape="caret down"></clr-icon>
           </button>
           <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
-            <label class="dropdown-header" aria-hidden="true">Recipe Name</label>
+            <label class="dropdown-header" aria-hidden="true">{{recipeItem.name}}</label>
             <a  href="#" clrDropdownItem>Add to Shopping List</a>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
             <button class="btn btn-info" clrDropdownItem>Edit Recipe</button>
