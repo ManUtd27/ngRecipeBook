@@ -13,8 +13,5 @@ export class RecipeBookComponent implements OnInit {
 
   ngOnInit() {
   }
-onSelectedItem(item: Recipe) {
-    this.itemDetail = item;
-}
 
 }
