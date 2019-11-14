@@ -1,13 +1,22 @@
 <div class="clr-row">
   <div class="clr-col-sm-12 clr-col-md-12">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit (addListItem)="addToShoppingList($event)"></app-shopping-edit>
     <hr>
-    <ul class="list-group list-unstyled">
-      <li *ngFor="let ingredient of ingredients">
-        <a style="cursor: pointer" class="list-group-item">
-          {{ingredient.name }} ({{ingredient.amount}})
-        </a>
-      </li>
-    </ul>
+    <table *ngIf="ingredients" class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ingredient of ingredients">
+        <td><a href="">{{ingredient.name}}</a></td>
+        <td>{{ingredient.amount}}</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
+
+

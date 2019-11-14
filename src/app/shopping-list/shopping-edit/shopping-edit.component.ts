@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Ingredient} from '../../shared/ingredient';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -8,6 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ShoppingEditComponent implements OnInit {
   shoppingEditForm: FormGroup;
+  @Output() addListItem: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
   constructor(public fb: FormBuilder) { }
 
   ngOnInit() {
@@ -18,7 +20,8 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   addItem() {
-    alert(JSON.stringify(this.shoppingEditForm.value));
+    const { name, amount } = this.shoppingEditForm.value;
+    this.addListItem.emit(new Ingredient(name, amount));
     this.shoppingEditForm.reset();
   }
 }
