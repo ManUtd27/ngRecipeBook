@@ -1,21 +1,29 @@
 <div class="clr-row">
   <div class="clr-col-sm-12 clr-col-md-12">
-    <app-shopping-edit (addListItem)="addToShoppingList($event)"></app-shopping-edit>
+    <app-shopping-edit [ingredientsLength]="ingredients.length" (clearList)="onClearList()" (addListItem)="addToShoppingList($event)"></app-shopping-edit>
     <hr>
-    <table *ngIf="ingredients" class="table">
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>amount</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let ingredient of ingredients">
-        <td><a href="">{{ingredient.name}}</a></td>
-        <td>{{ingredient.amount}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <ng-container *ngIf="ingredients.length > 0 then listOfIngredients else infoText">
+
+    </ng-container>
+   <ng-template #listOfIngredients>
+     <table class="table">
+       <thead>
+       <tr>
+         <th>Name</th>
+         <th>amount</th>
+       </tr>
+       </thead>
+       <tbody>
+       <tr *ngFor="let ingredient of ingredients">
+         <td><a href="">{{ingredient.name}}</a></td>
+         <td>{{ingredient.amount}}</td>
+       </tr>
+       </tbody>
+     </table>
+   </ng-template>
+    <ng-template  #infoText>
+      <h3 class="welcome">Please add some Ingredients!</h3>
+    </ng-template>
   </div>
 </div>
 

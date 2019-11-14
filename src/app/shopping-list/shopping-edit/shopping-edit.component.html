@@ -23,7 +23,7 @@
         <div class="clr-col-sm-12">
           <button [disabled]="!shoppingEditForm.valid" type="submit" class="btn btn-success">Add</button>
           <button type="button" class="btn btn-danger">Delete</button>
-          <button type="button" class="btn btn-primary">Clear</button>
+          <button [disabled]="ingredientsLength <= 0" type="button" class="btn btn-primary" (click)="onClearList()">Clear</button>
         </div>
       </div>
     </form>

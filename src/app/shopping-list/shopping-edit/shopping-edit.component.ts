@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Ingredient} from '../../shared/ingredient';
 
@@ -10,6 +10,8 @@ import {Ingredient} from '../../shared/ingredient';
 export class ShoppingEditComponent implements OnInit {
   shoppingEditForm: FormGroup;
   @Output() addListItem: EventEmitter<Ingredient> = new EventEmitter<Ingredient>();
+  @Output() clearList: EventEmitter<undefined> = new EventEmitter<undefined>();
+  @Input() ingredientsLength;
   constructor(public fb: FormBuilder) { }
 
   ngOnInit() {
@@ -22,6 +24,11 @@ export class ShoppingEditComponent implements OnInit {
   addItem() {
     const { name, amount } = this.shoppingEditForm.value;
     this.addListItem.emit(new Ingredient(name, amount));
+    this.shoppingEditForm.reset();
+  }
+
+  onClearList() {
+    this.clearList.emit();
     this.shoppingEditForm.reset();
   }
 }
