@@ -20,7 +20,11 @@
           Ingredients
         </div>
         <div class="card-text">
-          This are the ingredients
+          <ul class="list-unstyled">
+            <li *ngFor="let ingredient of recipeItem.ingredients">
+              {{ingredient.name }} <span class="badge badge-light-blue">{{ingredient.amount}}</span>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="card-footer">
@@ -31,7 +35,7 @@
           </button>
           <clr-dropdown-menu clrPosition="bottom-left" *clrIfOpen>
             <label class="dropdown-header" aria-hidden="true">{{recipeItem.name}}</label>
-            <a  href="#" clrDropdownItem>Add to Shopping List</a>
+            <a  (click)="addToShoppingList()" clrDropdownItem>Add to Shopping List</a>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
             <button class="btn btn-info" clrDropdownItem>Edit Recipe</button>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
