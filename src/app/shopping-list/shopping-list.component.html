@@ -1,6 +1,6 @@
 <div class="clr-row">
   <div class="clr-col-sm-12 clr-col-md-12">
-    <app-shopping-edit [ingredientsLength]="ingredients.length" (clearList)="onClearList()" (addListItem)="addToShoppingList($event)"></app-shopping-edit>
+    <app-shopping-edit [ingredientsLength]="ingredients.length" ></app-shopping-edit>
     <hr>
     <ng-container *ngIf="ingredients.length > 0 then listOfIngredients else infoText">
 
