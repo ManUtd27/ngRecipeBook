@@ -6,7 +6,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
   { path: 'shopping-list', loadChildren: () => import('./shopping-list/shopping-list.module').then(m => m.ShoppingListModule) },
-  { path: 'recipe-list', loadChildren: () => import('./recipe-book/recipe-book.module').then(m => m.RecipeBookModule) },
+  { path: 'recipes', loadChildren: () => import('./recipe-book/recipe-book.module').then(m => m.RecipeBookModule) },
 ];
 
 @NgModule({
@@ -18,3 +18,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
