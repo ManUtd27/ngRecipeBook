@@ -37,7 +37,7 @@
             <label class="dropdown-header" aria-hidden="true">{{recipeItem.name}}</label>
             <a  (click)="addToShoppingList()" clrDropdownItem>Add to Shopping List</a>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
-            <button class="btn btn-info" clrDropdownItem>Edit Recipe</button>
+            <button (click)="onEditRecipe()" class="btn btn-info" clrDropdownItem>Edit Recipe</button>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
             <button class="btn btn-warning" clrDropdownItem>Delete Recipe</button>
           </clr-dropdown-menu>

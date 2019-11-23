@@ -9,10 +9,11 @@ import { RecipeItemComponent } from './recipe-list/recipe-item/recipe-item.compo
 import {ClrDropdownModule} from '@clr/angular';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import { RecipeStartComponent } from './recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 
 
 @NgModule({
-  declarations: [RecipeBookComponent, RecipeListComponent, RecipeDetailComponent, RecipeItemComponent, RecipeStartComponent],
+  declarations: [RecipeBookComponent, RecipeListComponent, RecipeDetailComponent, RecipeItemComponent, RecipeStartComponent, RecipeEditComponent],
   imports: [
     CommonModule,
     RecipeBookRoutingModule,
