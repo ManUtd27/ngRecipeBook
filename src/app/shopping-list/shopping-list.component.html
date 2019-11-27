@@ -15,8 +15,8 @@
        </tr>
        </thead>
        <tbody>
-       <tr *ngFor="let ingredient of ingredients">
-         <td><a href="">{{ingredient.name}}</a></td>
+       <tr *ngFor="let ingredient of ingredients; let i = index">
+         <td><a (click)="onEditItem(i)">{{ingredient.name}}</a></td>
          <td>{{ingredient.amount}}</td>
        </tr>
        </tbody>

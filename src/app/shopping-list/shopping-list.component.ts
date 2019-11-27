@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Ingredient} from '../shared/ingredient';
 import {ShoppingListService} from './shopping-list.service';
 import {Subscription} from 'rxjs';
+import {isAsciiLetter} from 'codelyzer/angular/styles/chars';
 
 @Component({
   selector: 'app-shopping-list',
@@ -25,4 +26,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     this.igChangeSubscription.unsubscribe();
   }
 
+  onEditItem(index: number) {
+    this.shoppingListService.startedEditing.next(index);
+  }
 }
