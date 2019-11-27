@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ShoppingListRoutingModule } from './shopping-list-routing.module';
 import { ShoppingListComponent } from './shopping-list.component';
 import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
-import {ClrCommonFormsModule, ClrInputModule} from '@clr/angular';
+import {ClrCommonFormsModule, ClrDatagridModule, ClrIconModule, ClrInputModule} from '@clr/angular';
 import {ReactiveFormsModule} from '@angular/forms';
 
 
@@ -15,7 +15,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     ShoppingListRoutingModule,
     ClrCommonFormsModule,
     ReactiveFormsModule,
-    ClrInputModule
+    ClrInputModule,
+    ClrDatagridModule,
+    ClrIconModule
   ]
 })
 export class ShoppingListModule { }

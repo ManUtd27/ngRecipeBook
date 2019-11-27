@@ -22,8 +22,7 @@
       <div class="clr-row">
         <div class="clr-col-sm-12">
           <button [disabled]="!shoppingEditForm.valid" type="submit" class="btn btn-success">{{editMode ? 'Update' : 'Add' }}</button>
-          <button type="button" class="btn btn-danger">Delete</button>
-          <button [disabled]="ingredientsLength <= 0" type="button" class="btn btn-primary" (click)="onClearList()">Clear</button>
+          <button [disabled]="this.shoppingEditForm.pristine && !this.shoppingEditForm.dirty" type="button" class="btn btn-primary" (click)="onClearForm()">Clear</button>
         </div>
       </div>
     </form>

@@ -7,20 +7,22 @@
     </ng-container>
    <ng-template #listOfIngredients>
      <h3 class="welcome">Your Shopping List!</h3>
-     <table class="table">
-       <thead>
-       <tr>
-         <th>Name</th>
-         <th>amount</th>
-       </tr>
-       </thead>
-       <tbody>
-       <tr *ngFor="let ingredient of ingredients; let i = index">
-         <td><a (click)="onEditItem(i)">{{ingredient.name}}</a></td>
-         <td>{{ingredient.amount}}</td>
-       </tr>
-       </tbody>
-     </table>
+     <clr-datagrid>
+       <clr-dg-action-bar>
+         <button type="button" class="btn btn-sm btn-secondary" (click)="onClearList()"><clr-icon shape="close"></clr-icon>Clear List</button>
+       </clr-dg-action-bar>
+     <clr-dg-column>Name</clr-dg-column>
+     <clr-dg-column>Amount</clr-dg-column>
+     <clr-dg-row *ngFor="let ingredient of ingredients; let i = index">
+       <clr-dg-action-overflow>
+         <button class="action-item" (click)="onEditItem(i)">Edit</button>
+         <button class="action-item" (click)="onDeleteItem(i)" >Delete</button>
+       </clr-dg-action-overflow>
+       <clr-dg-cell>{{ingredient.name}}</clr-dg-cell>
+       <clr-dg-cell>{{ingredient.amount}}</clr-dg-cell>
+     </clr-dg-row>
+     <clr-dg-footer>{{ingredients.length}} Ingredients</clr-dg-footer>
+   </clr-datagrid>
    </ng-template>
     <ng-template  #infoText>
       <h3 class="welcome">Please add some Ingredients!</h3>
