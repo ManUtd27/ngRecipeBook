@@ -14,6 +14,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   subscription: Subscription;
   editMode = false;
   editItemIndex: number;
+  editedItem: Ingredient;
   @Input() ingredientsLength;
   constructor(public fb: FormBuilder, private shoppingListService: ShoppingListService) { }
 
@@ -26,12 +27,22 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       .subscribe((index: number) => {
         this.editMode = true;
         this.editItemIndex = index;
+        this.editedItem = this.shoppingListService.getIngredient(this.editItemIndex);
+        this.shoppingEditForm.setValue({
+          name: this.editedItem.name,
+          amount: this.editedItem.amount
+        });
       });
   }
 
   addItem() {
     const { name, amount } = this.shoppingEditForm.value;
-    this.shoppingListService.addIngredient(new Ingredient(name, amount));
+    const newIngredient = new Ingredient(name, amount);
+    if (this.editMode) {
+      this.shoppingListService.updateIngredient(this.editItemIndex, newIngredient);
+    } else {
+      this.shoppingListService.addIngredient(newIngredient);
+    }
     this.shoppingEditForm.reset();
   }
 
