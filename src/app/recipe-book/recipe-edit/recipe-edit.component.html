@@ -1,8 +1,8 @@
 <form clrForm [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
   <div class="clr-row">
     <div class="clr-col-sm-12">
-      <button type="submit" class="btn btn-success">Save</button>
-      <button type="button" class="btn btn-danger">Cancel</button>
+      <button [disabled]="!recipeForm.valid" type="submit" class="btn btn-success">Save</button>
+      <button type="button" (click)="onCancel()" class="btn btn-danger">Cancel</button>
     </div>
   </div>
   <div class="clr-row">
@@ -17,16 +17,16 @@
     <div class="clr-col-sm-6">
       <clr-input-container>
         <label>Image URL</label>
-        <input clrInput type="text" id="imagePath" formControlName="imagePath"/>
+        <input #imagePath clrInput type="text" id="imagePath" formControlName="imagePath"/>
         <clr-control-helper>Enter Image URL</clr-control-helper>
         <clr-control-error>This Item is required</clr-control-error>
       </clr-input-container>
     </div>
   </div>
-
+  <hr>
   <div class="clr-col-sm-12">
     <div class="card-img">
-      <img [src]="" alt="test">
+      <img [src]="imagePath.value" alt="test">
     </div>
   </div>
 
@@ -38,8 +38,7 @@
       <clr-control-error>This Item is required</clr-control-error>
     </clr-textarea-container>
   </div>
-
-  <div class="clr-row" >
+   <div class="clr-row" >
     <div formArrayName="ingredients">
       <div class="clr-row" [formGroupName]="i" *ngFor="let ingredientCtrl of controls let i = index ">
         <div class="clr-col-sm-6">
@@ -60,6 +59,12 @@
           <button type="button" class="btn btn-danger">X</button>
         </div>
       </div>
+    </div>
+  </div>
+  <hr>
+  <div class="clr-row">
+    <div class="clr-col-sm-12">
+      <button (click)="onAddIngredient()" type="button" class="btn btn-success">Add Ingredient</button>
     </div>
   </div>
 </form>

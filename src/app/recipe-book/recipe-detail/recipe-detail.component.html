@@ -39,7 +39,7 @@
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
             <button (click)="onEditRecipe()" class="btn btn-info" clrDropdownItem>Edit Recipe</button>
             <div class="dropdown-divider" role="separator" aria-hidden="true"></div>
-            <button class="btn btn-warning" clrDropdownItem>Delete Recipe</button>
+            <button class="btn btn-warning" (click)="onDeleteRecipe()" clrDropdownItem>Delete Recipe</button>
           </clr-dropdown-menu>
         </clr-dropdown>
       </div>

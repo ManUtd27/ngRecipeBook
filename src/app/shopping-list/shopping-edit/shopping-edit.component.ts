@@ -21,7 +21,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.shoppingEditForm = this.fb.group({
       name: [undefined, Validators.required],
-      amount: [undefined, Validators.required]
+      amount: [undefined, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)]]
     });
     this.subscription = this.shoppingListService.startedEditing
       .subscribe((index: number) => {
