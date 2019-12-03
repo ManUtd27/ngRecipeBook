@@ -56,8 +56,12 @@
           </clr-input-container>
         </div>
         <div class="clr-col-sm-2">
-          <button type="button" class="btn btn-danger">X</button>
+          <button (click)="onDeleteIngredient(i)" type="button" class="btn btn-danger">X</button>
         </div>
+
+      </div>
+      <div class="clr-col-sm-2 ">
+        <button (click)="onDeleteAllIngredients()" type="button" class="btn btn-danger">Clear All</button>
       </div>
     </div>
   </div>
