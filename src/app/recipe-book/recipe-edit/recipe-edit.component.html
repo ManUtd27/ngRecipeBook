@@ -1,1 +1,62 @@
-<p>recipe-edit works!</p>
+<form clrForm>
+  <div class="clr-row">
+    <div class="clr-col-sm-12">
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="button" class="btn btn-danger">Cancel</button>
+    </div>
+  </div>
+  <div class="clr-row">
+    <div class="clr-col-sm-6">
+      <clr-input-container>
+        <label>Name</label>
+        <input clrInput type="text" id="name"/>
+        <clr-control-helper>Enter Name of Recipe Item</clr-control-helper>
+        <clr-control-error>This Item is required</clr-control-error>
+      </clr-input-container>
+    </div>
+    <div class="clr-col-sm-6">
+      <clr-input-container>
+        <label>Image URL</label>
+        <input clrInput type="text" id="imagePath"/>
+        <clr-control-helper>Enter Image URL</clr-control-helper>
+        <clr-control-error>This Item is required</clr-control-error>
+      </clr-input-container>
+    </div>
+  </div>
+
+  <div class="clr-col-sm-12">
+    <div class="card-img">
+      <img [src]="" alt="test">
+    </div>
+  </div>
+
+  <div class="clr-col-sm-12">
+    <clr-textarea-container>
+      <label>Description</label>
+      <textarea clrTextarea rows="6" id="description"> </textarea>
+      <clr-control-helper>Enter Description of Recipe</clr-control-helper>
+      <clr-control-error>This Item is required</clr-control-error>
+    </clr-textarea-container>
+  </div>
+
+  <div class="clr-row">
+    <div class="clr-col-sm-6">
+      <clr-input-container>
+        <input clrInput type="text" id="name"/>
+        <clr-control-helper>Enter Name of Ingredient Item</clr-control-helper>
+        <clr-control-error>This Item is required</clr-control-error>
+      </clr-input-container>
+    </div>
+    <div class="clr-col-sm-4">
+      <clr-input-container>
+        <input clrInput type="number" id="name"/>
+        <clr-control-helper>Amount</clr-control-helper>
+        <clr-control-error>This Item is required</clr-control-error>
+      </clr-input-container>
+    </div>
+    <div class="clr-col-sm-2">
+      <button type="button" class="btn btn-danger">X</button>
+    </div>
+  </div>
+
+</form>
