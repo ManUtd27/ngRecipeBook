@@ -1,4 +1,4 @@
-<form clrForm>
+<form clrForm [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
   <div class="clr-row">
     <div class="clr-col-sm-12">
       <button type="submit" class="btn btn-success">Save</button>
@@ -9,7 +9,7 @@
     <div class="clr-col-sm-6">
       <clr-input-container>
         <label>Name</label>
-        <input clrInput type="text" id="name"/>
+        <input clrInput type="text" id="name" formControlName="name" />
         <clr-control-helper>Enter Name of Recipe Item</clr-control-helper>
         <clr-control-error>This Item is required</clr-control-error>
       </clr-input-container>
@@ -17,7 +17,7 @@
     <div class="clr-col-sm-6">
       <clr-input-container>
         <label>Image URL</label>
-        <input clrInput type="text" id="imagePath"/>
+        <input clrInput type="text" id="imagePath" formControlName="imagePath"/>
         <clr-control-helper>Enter Image URL</clr-control-helper>
         <clr-control-error>This Item is required</clr-control-error>
       </clr-input-container>
@@ -33,30 +33,33 @@
   <div class="clr-col-sm-12">
     <clr-textarea-container>
       <label>Description</label>
-      <textarea clrTextarea rows="6" id="description"> </textarea>
+      <textarea clrTextarea rows="6" id="description" formControlName="description"> </textarea>
       <clr-control-helper>Enter Description of Recipe</clr-control-helper>
       <clr-control-error>This Item is required</clr-control-error>
     </clr-textarea-container>
   </div>
 
-  <div class="clr-row">
-    <div class="clr-col-sm-6">
-      <clr-input-container>
-        <input clrInput type="text" id="name"/>
-        <clr-control-helper>Enter Name of Ingredient Item</clr-control-helper>
-        <clr-control-error>This Item is required</clr-control-error>
-      </clr-input-container>
-    </div>
-    <div class="clr-col-sm-4">
-      <clr-input-container>
-        <input clrInput type="number" id="name"/>
-        <clr-control-helper>Amount</clr-control-helper>
-        <clr-control-error>This Item is required</clr-control-error>
-      </clr-input-container>
-    </div>
-    <div class="clr-col-sm-2">
-      <button type="button" class="btn btn-danger">X</button>
+  <div class="clr-row" >
+    <div formArrayName="ingredients">
+      <div class="clr-row" [formGroupName]="i" *ngFor="let ingredientCtrl of controls let i = index ">
+        <div class="clr-col-sm-6">
+          <clr-input-container>
+            <input clrInput type="text" formControlName="name"/>
+            <clr-control-helper>Enter Name of Ingredient Item</clr-control-helper>
+            <clr-control-error>This Item is required</clr-control-error>
+          </clr-input-container>
+        </div>
+        <div class="clr-col-sm-4">
+          <clr-input-container>
+            <input clrInput type="number" formControlName="amount"/>
+            <clr-control-helper>Amount</clr-control-helper>
+            <clr-control-error>This Item is required</clr-control-error>
+          </clr-input-container>
+        </div>
+        <div class="clr-col-sm-2">
+          <button type="button" class="btn btn-danger">X</button>
+        </div>
+      </div>
     </div>
   </div>
-
 </form>
