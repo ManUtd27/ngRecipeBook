@@ -13,6 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeBookModule } from './recipe-book/recipe-book.module';
 import { ShellComponent } from './shared/shell/shell.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ShellComponent } from './shared/shell/shell.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    RecipeBookModule
+    RecipeBookModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
