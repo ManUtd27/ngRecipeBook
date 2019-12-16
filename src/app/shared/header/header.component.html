@@ -12,8 +12,8 @@
         <clr-icon shape="caret down"></clr-icon>
       </button>
       <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-        <a  clrDropdownItem>Save Data</a>
-        <a  clrDropdownItem>Fetch Data</a>
+        <a  clrDropdownItem (click)="onSaveData()">Save Data</a>
+        <a  clrDropdownItem (click)="onFetchData()">Fetch Data</a>
       </clr-dropdown-menu>
     </clr-dropdown>
   </div>
