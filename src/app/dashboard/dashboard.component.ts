@@ -10,6 +10,8 @@ import {AuthService} from './auth.service';
 export class DashboardComponent implements OnInit {
   authenticateForm: FormGroup;
   isLoginMode = true;
+  isLoading = false;
+  error: string = null;
 
   constructor(public fb: FormBuilder, private authService: AuthService) {
   }
@@ -25,12 +27,18 @@ export class DashboardComponent implements OnInit {
   }
   onSubmit() {
     const {email, password } = this.authenticateForm.value;
+    this.isLoading = true;
     if (this.isLoginMode) {
     console.log('Login', this.authenticateForm.value);
     } else {
       this.authService.signUp(email, password).subscribe(
         responseData => console.log(responseData),
-        error => console.log(error)
+        error => {
+          console.log(error);
+          this.error = 'An error occurred!';
+          this.isLoading = false;
+        },
+        () => this.isLoading = false
       );
     }
     this.authenticateForm.reset();
