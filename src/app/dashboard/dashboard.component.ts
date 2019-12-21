@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from './auth.service';
+import {AuthService, AuthResponseData} from './auth.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,20 +28,22 @@ export class DashboardComponent implements OnInit {
   }
   onSubmit() {
     const {email, password } = this.authenticateForm.value;
+    let authObs: Observable<AuthResponseData>;
     this.isLoading = true;
     if (this.isLoginMode) {
-    console.log('Login', this.authenticateForm.value);
+      authObs = this.authService.login(email, password);
     } else {
-      this.authService.signUp(email, password).subscribe(
-        responseData => console.log(responseData),
-        error => {
-          console.log(error);
-          this.error = 'An error occurred!';
-          this.isLoading = false;
-        },
-        () => this.isLoading = false
-      );
+      authObs = this.authService.signUp(email, password);
     }
+    authObs.subscribe(
+      responseData => console.log(responseData),
+      error => {
+        console.log(error);
+        this.error = error;
+        this.isLoading = false;
+      },
+      () => this.isLoading = false
+    );
     this.authenticateForm.reset();
   }
 }
