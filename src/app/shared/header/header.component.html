@@ -5,7 +5,10 @@
       <span class="title">Recipe Book</span>
     </a>
   </div>
-  <div class="header-actions">
+  <div *ngIf="isAuthenticated" class="header-actions">
+    <a  class="nav-link nav-text">
+      Log Out
+    </a>
     <clr-dropdown>
       <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
         <clr-icon shape="cog"></clr-icon>
