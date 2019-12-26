@@ -19,9 +19,7 @@ export class DataStorageService {
         .subscribe( response => console.log('Storing Recipes: ', response));
   }
   fetchRecipes() {
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap(user => this.http.get<Recipe[]>(`https://ng-recipe-book-cf67b.firebaseio.com/recipes.json?auth=${user.token}`)),
+    return this.http.get<Recipe[]>(`https://ng-recipe-book-cf67b.firebaseio.com/recipes.json`).pipe(
       map( recipes => {
         return recipes.map( recipe => {
           return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []};
@@ -31,6 +29,5 @@ export class DataStorageService {
         console.log('Getting Recipes: ', recipes);
         this.recipeService.setRecipes(recipes);
       })
-    );
-  }
+    ); }
 }

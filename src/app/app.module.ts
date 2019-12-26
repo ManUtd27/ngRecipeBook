@@ -13,7 +13,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeBookModule } from './recipe-book/recipe-book.module';
 import { ShellComponent } from './shared/shell/shell.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptorService} from './dashboard/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import {HttpClientModule} from '@angular/common/http';
     RecipeBookModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
