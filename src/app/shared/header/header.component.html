@@ -6,7 +6,7 @@
     </a>
   </div>
   <div *ngIf="isAuthenticated" class="header-actions">
-    <a  class="nav-link nav-text">
+    <a (click)="onLogOut()" class="nav-link nav-text">
       Log Out
     </a>
     <clr-dropdown>
